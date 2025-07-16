@@ -18,7 +18,7 @@ PyPortable is a Python tool designed to simplify the creation of portable Python
 
 ## 🚀 How it Works
 
-![PyPortable Screenshot](media/Screenshot.png)
+![PyPortable Screenshot](media/screenshot.png)
 
 1.  **Project Selection:** You select your existing Python project directory.
 
