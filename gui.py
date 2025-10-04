@@ -2,6 +2,7 @@ import os
 import re
 import runpy
 import sys
+import tkinter
 
 import customtkinter
 import requests
@@ -51,7 +52,7 @@ class Sub(gui_template.MainWindow):
             self.python_version_var.required_condition_met = False
 
 
-
+    # noinspection PyUnusedLocal
     def submit(self):
         submit_progress = gui_template.PopupProgressBarWindow(self.main_frame, "Making your application PyPortable", "...")
 
@@ -65,24 +66,33 @@ class Sub(gui_template.MainWindow):
         # Set custom arguments
         sys.argv = ['main.py', args, "gui"]
 
-        runpy.run_module('main', run_name="__main__", alter_sys=True)
+        # RUN MAIN -------------------------------------------------------------------------------------------------
+        try:
+            runpy.run_module('main', run_name="__main__", alter_sys=True)
 
-        # Restore original sys.argv
-        sys.argv = original_argv
+            # Restore original sys.argv
+            sys.argv = original_argv
 
-        submit_progress.destroy()
-        # noinspection PyUnusedLocal
-        submit_progress = None
+            submit_progress.destroy()
 
-        # noinspection PyUnusedLocal
-        success = gui_template.PopupDialogWindow(self, "Finished", "PyPortable application created successfully!", "Open Folder")
+            submit_progress = None
+            success = gui_template.PopupDialogWindow(self, "Finished",
+                                                     "PyPortable application created successfully!",
+                                                     "Open Folder")
 
-        # open containing folder
-        os.startfile(self.output_project_dir.target_dir.get())
+            # open containing folder
+            os.startfile(self.output_project_dir.target_dir.get())
+
+            sys.exit()
+        except Exception:
+            submit_progress.destroy()
+            submit_progress = None
+            success = gui_template.PopupDialogWindow(self, "Error", "Invalid Input Provided!",
+                                                     "OK")
 
 
     def run_when_required_conditions_met(self):
-        self.submit_button.configure(fg_color="green")
+        self.submit_button.configure(fg_color="green", state=tkinter.NORMAL)
 
 
 
@@ -107,7 +117,7 @@ class Sub(gui_template.MainWindow):
         self.submit_button_frame.grid_columnconfigure(0, weight=1)
         self.submit_button_frame.pack(fill="both")
 
-        #  --------------------------------------------------------------------------------------
+        #  --------------------------------------------------------------------------------------------------------
         self.python_versions_list = ["3.12.4", "3.12.3", "3.12.2", "3.12.1", "3.12.0", "3.11.9", "3.11.8", "3.11.7", "3.11.6", "3.11.5",
                         "3.11.4", "3.11.3", "3.11.2", "3.11.1", "3.11.0", "3.10.14", "3.10.13", "3.10.12", "3.10.11",
                         "3.10.10", "3.10.9", "3.10.8", "3.10.7", "3.10.6", "3.10.5", "3.10.4", "3.10.3", "3.10.2",
@@ -169,8 +179,10 @@ class Sub(gui_template.MainWindow):
         # Submit Frame WIDGETS --------------------------------------------------------------------------------------
         self.submit_button = customtkinter.CTkButton(self.submit_button_frame, text="Create PyPortable Application", command=self.submit)
         self.submit_button.grid(row=0, column=0, padx=10, pady=10, sticky="nsew")
+        self.submit_button.configure(state=tkinter.DISABLED)
 
-        self.init_progressbar = gui_template.PopupProgressBarWindow(self.main_frame, "Loadin", "Fetching available Python versions...")
+        # Create ProgressBar and Fetch Python versions  --------------------------------------------------------------------------------------
+        self.init_progressbar = gui_template.PopupProgressBarWindow(self.main_frame, "Loading", "Fetching available Python versions...")
         # noinspection PyTypeChecker
         self.after(1000, self.fetch_python_versions)
 
