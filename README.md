@@ -1,12 +1,20 @@
-# PyPortable -- Alpha
+<p align="center"><img src="./media/PyPortableLogo.png" alt="PyPortableLogo" width="150" height="150"></p>
+<p align="center"><strong>PyPortable -- Alpha</strong></p>
 
-![PyPortable Logo](media/PyPortableLogo.png)
 
-**Current Version: Alpha**
 
-PyPortable is a Python tool designed to simplify the creation of portable Python applications. 
 
-## ✨ Key Features
+PyPortable is a Python tool designed to simplify the creation of portable Python applications on Windows. 
+
+
+## 📰 Table of Contents
+
+- [Features](#-features)
+- [How it Works](#-how-it-works)
+- [Installation and Requirements](#-installation-and-requirements)
+- [Made with TkForge](#-made-with-tkforge)
+
+## Features
 
 * **No Virtual Environments Needed:** PyPortable leverages `python-embeddable` distributions to create self-contained applications, eliminating the need for users to set up or manage virtual environments.
 
@@ -16,7 +24,7 @@ PyPortable is a Python tool designed to simplify the creation of portable Python
 
 * **Self-Contained:** Your entire application, including its Python interpreter and all dependencies, is packaged into a single, portable directory.
 
-## 🚀 How it Works
+## How it Works
 
 ![PyPortable Screenshot](media/screenshot.png)
 
@@ -32,7 +40,8 @@ PyPortable is a Python tool designed to simplify the creation of portable Python
 
 6.  **Shortcut Creation:** A shortcut to the VBS launcher is placed in the root of your portable application directory for easy access.
 
-## 🛠️ Installation
+## Installation and Requirements
+Requires Windows.
 
 ```
 
@@ -44,19 +53,11 @@ pip install -r requirements.txt
 
 ```
 
-## 📖 Usage
+## Usage
 
-1.  Run the `final_gui.py` (or your main GUI file) to launch the PyPortable application.
+1.  Run the `gui.py` to launch the PyPortable application.
 
-2.  Follow the on-screen instructions to:
-
-    * Select your Python project directory.
-
-    * Choose an output directory for your portable application.
-
-    * Specify the main Python file to execute.
-
-    * Select the desired Python version (or provide a custom `python-embeddable` ZIP).
+2.  Follow the on-screen instructions.
 
 3.  Click "Create PyPortable Application".
 
