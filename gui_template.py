@@ -101,7 +101,7 @@ class MainWindow(customtkinter.CTk):
         placeholder_text = new_value._placeholder_text
 
         if val != placeholder_text:
-            new_value.configure(border_color="black")
+            new_value.configure(border_color="#565B5E")
             new_value.insert(0, val)
             new_value.required_condition_met = True
             if self.required_conditions_met:
