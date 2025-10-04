@@ -12,6 +12,7 @@ PyPortable is a Python tool designed to simplify the creation of portable Python
 - [Features](#features)
 - [How it Works](#how-it-works)
 - [Installation and Requirements](#installation-and-requirements)
+- [Usage](#usage)
 
 ## Features
 
