@@ -9,10 +9,10 @@ PyPortable is a Python tool designed to simplify the creation of portable Python
 
 ## 📰 Table of Contents
 
-- [Features](#-features)
-- [How it Works](#-how-it-works)
-- [Installation and Requirements](#-installation-and-requirements)
-- [Made with TkForge](#-made-with-tkforge)
+- [Features](#features)
+- [How it Works](#how-it-works)
+- [Installation and Requirements](#installation-and-requirements)
+- [Usage](#usage)
 
 ## Features
 
