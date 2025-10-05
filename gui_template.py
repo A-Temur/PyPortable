@@ -1,4 +1,4 @@
-import webbrowser
+from webbrowser import open as webbrowser_open
 from tkinter import filedialog
 
 import customtkinter
@@ -27,7 +27,7 @@ class MainWindow(customtkinter.CTk):
     @staticmethod
     def open_link(url):
         """Opens the given URL in a new browser tab."""
-        webbrowser.open_new_tab(url)
+        webbrowser_open(url)
         print(f"Opening {url}...")
 
 
@@ -243,58 +243,3 @@ class PopupDialogWindow:
     def destroy(self):
         self.window.destroy()
         self.window = None
-
-
-
-
-
-
-# Example
-# class Sub(MainWindow):
-#
-#     def __init__(self):
-#         super().__init__("PyPortable", 757, 474)
-#
-#         self.program_name_frame = customtkinter.CTkFrame(self.main_frame)
-#         self.program_name_frame.grid_columnconfigure(1, weight=1)
-#         self.program_name_frame.pack(fill="both")
-#
-#         self.directory_frame = customtkinter.CTkFrame(self.main_frame)
-#         self.directory_frame.grid_columnconfigure(1, weight=1)
-#         self.directory_frame.pack(fill="both")
-#
-#         self.python_version_dropdown_frame = customtkinter.CTkFrame(self.main_frame)
-#         self.python_version_dropdown_frame.grid_columnconfigure(0, weight=1)
-#         self.python_version_dropdown_frame.grid_columnconfigure(1, weight=1)
-#         self.python_version_dropdown_frame.pack(fill="both")
-#
-#
-#         self.program_name_widget = TextInputTemplate(self.program_name_frame, 0, "Program Name", "MyApp")
-#         self.required_widgets.append(self.program_name_widget.entry)
-#
-#         self.main_project_dir = DirectoryInputTemplate(self.directory_frame, self.select_dir_dialog, 1,
-#                             "Select your Projects directory", "Enter Path or select Browse Button", "Browse")
-#         self.required_widgets.append(self.main_project_dir.target_dir)
-#
-#         self.output_project_dir = DirectoryInputTemplate(self.directory_frame, self.select_dir_dialog,
-#                                                      2,
-#                                                      "Select output location", "Where your Portable App will be saved", "Browse")
-#         self.required_widgets.append(self.output_project_dir.target_dir)
-#
-#         self.python_file_location = DirectoryInputTemplate(self.directory_frame, self.select_file_dialog,
-#                                              3,
-#                                              "Select the main python file to execute", "Path to your main python file", "Browse")
-#         self.required_widgets.append(self.python_file_location.target_dir)
-#
-#
-#
-#         self.python_version_label = customtkinter.CTkLabel(self.python_version_dropdown_frame, text="Python Version:")
-#         self.python_version_label.grid(row=0, column=0, padx=10, pady=5, sticky="e")
-#         self.python_version_var = customtkinter.StringVar()
-#         self.python_version = customtkinter.CTkComboBox(self.python_version_dropdown_frame,
-#                                                         values=["TMP", "TMP2"],
-#                                                         variable=self.python_version_var)
-#         self.python_version.grid(row=0, column=1, padx=10, pady=5, sticky="w")
-#
-#
-#         self.reset_required_fields()

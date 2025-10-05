@@ -67,6 +67,7 @@ class Sub(gui_template.MainWindow):
         sys.argv = ['main.py', args, "gui"]
 
         # RUN MAIN -------------------------------------------------------------------------------------------------
+        # noinspection PyBroadException
         try:
             runpy.run_module('main', run_name="__main__", alter_sys=True)
 
