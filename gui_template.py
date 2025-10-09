@@ -1,3 +1,6 @@
+"""
+Copyright 2025 github.com/A-Temur, OG-Brain.com, Abdullah Temur. All rights reserved.
+"""
 from webbrowser import open as webbrowser_open
 from tkinter import filedialog
 
